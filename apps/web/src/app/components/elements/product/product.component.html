@@ -1,0 +1,37 @@
+<div
+  class="container"
+  fxLayout="column"
+  fxLayoutAlign="start center"
+  fxLayoutGap="15px"
+  fxShow="true"
+  fxShow.gt-sm="false"
+>
+  <h3>{{ product.title }}</h3>
+  <div fxLayout="row" fxLayoutAlign="center start">
+    <img [src]="product.image?.asset?.url"/>
+  </div>
+  <template-portable-text *ngFor="let item of product.productDescription" [item]="item"></template-portable-text>
+  <div>
+    <template-button (btnClick)="addToCart(product)" title="Add To Cart"></template-button>
+  </div>
+</div>
+
+<div
+  class="container"
+  fxLayout="row"
+  fxLayoutAlign="center start"
+  fxLayoutGap="100px"
+  fxShow="false"
+  fxShow.gt-sm="true"
+>
+  <div fxLayout="row" fxLayoutAlign="center start">
+    <img [src]="product.image?.asset?.url"/>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="15px">
+    <h3>{{ product.title }}</h3>
+    <template-portable-text *ngFor="let item of product.productDescription" [item]="item"></template-portable-text>
+    <div>
+      <template-button (btnClick)="addToCart(product)" title="Add To Cart"></template-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div fxLayout="row" fxLayoutAlign="center start">
+  <div fxLayout="column" fxLayoutAlign="start center" fxFlex="50" fxFlex.lt-md="90">
+    <div class="card" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="15px">
+      <img *ngIf="imageUrl" [src]="imageUrl"/>
+      <h2 *ngIf="card.title">{{card.title}}</h2>
+      <h3 *ngIf="card.subtitle">{{card.subtitle}}</h3>
+      <template-portable-text *ngFor="let item of card.text" [item]="item"></template-portable-text>
+      <div fxLayout="row" fxLayoutAlign="space-evenly start">
+        <template-button *ngFor="let cta of card.ctas" [route]="cta.link" [title]="cta.title" [inverse]="true"></template-button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-evenly start">
+        <template-badge *ngFor="let tag of card.tags" [tag]="tag"></template-badge>
+      </div>
+    </div>
+  </div>
+</div>

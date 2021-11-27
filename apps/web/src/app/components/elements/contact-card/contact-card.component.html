@@ -1,0 +1,10 @@
+<div fxLayout="column" fxLayoutAlign="start center">
+  <div class="card" fxLayout="column" fxLayoutAlign="start center" fxFlexOffset="50px">
+    <h2 *ngIf="data.title">{{data.title}}</h2>
+    <template-portable-text *ngFor="let item of data.text" [item]="item"></template-portable-text>
+    <div fxLayout="row" fxLayoutAlign="space-evenly start">
+      <template-button *ngFor="let cta of data.ctas" [route]="cta.link" [title]="cta.title" [inverse]="true"></template-button>
+    </div>
+    <iframe *ngIf="data.map" [src]="sanitizeUrl(data.map)" width="600" height="450" frameborder="0" allowfullscreen="" marginheight="0" marginwidth="0"></iframe>
+  </div>
+</div>
